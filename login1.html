@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Futminna</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <section>
+        <div class="from-box">
+            <div class="form-value">
+                <form id="login-form" action="/login" method="post">
+                    <h2>Login</h2>
+                    <!-- <div class="inputbox">
+                        <input type="username" required>
+                        <label for="">username</label>
+                    </div> -->
+                    <form action="/register" method="post">
+                        <h2>Register</h2>
+                    <div class="inputbox">
+                        <input type="student ID" required>
+                        <label for="">STUDENT ID</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="MATRIC NUMBER" required>
+                        <label for="">MATRIC NO</label>
+                    </div>
+                    <div class="forgot">
+                        <label for=""><input type="checkbox">Rememner Me <a href="#">Forget Passowrd</a></label>
+                        
+                    </div>
+                    <button type="submit">Log in</button>
+                    <div class="register">
+                        <p>Don't have an Acoount? <a href="Register.html">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src=""></script>
+    <script nomodule src=""></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'index1.html'; // replace 'next-page.html' with the actual URL of the next page
+        });
+    </script>
+</body>
+</html>

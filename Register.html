@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body style="background-image: url('school.jpeg');">
+    <section>
+        <div class="from-box">
+            <div class="form-value">
+                <form id="register-form">
+                    <h2>Register</h2>
+                    <div class="inputbox">
+                        <input type="text" id="studentId" name="studentId" required>
+                        <label for="studentId">STUDENT ID</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="matricNumber" name="matricNumber" required>
+                        <label for="matricNumber">MATRIC NO</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">PASSWORD</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="full name" name="full name" required>
+                        <label for="full name">full name</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="level" name="level" required>
+                        <label for="level">level</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="contact" name="contact" required>
+                        <label for="contact">CONTACT</label>
+                    </div>
+                    <button type="submit">Register</button>
+                    <div class="register">
+                        <p>Already have an account? <a href="login1.html">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src=""></script>
+    <script nomodule src=""></script>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const studentId = formData.get('studentId');
+            const matricNumber = formData.get('matricNumber');
+            const password = formData.get('password');
+            const full name = formData.get('full name');
+            const level = formData.get('level');
+            const contact = formData.get('contact');
+
+            // Send registration request to server
+            fetch('/register', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    studentId,
+                    matricNumber,
+                    password,
+                    full name,
+                    level,
+                    contact,
+
+                }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'User registered successfully') {
+                    // Redirect to login page
+                    window.location.href = 'login1.html';
+                } else {
+                    alert(data);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

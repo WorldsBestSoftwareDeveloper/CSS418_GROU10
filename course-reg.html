@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration </title>
+    <style>
+        body{
+            background-image: 
+            url('course.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container{
+        padding: 20px;
+        text-align: center;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+    button{
+        margin: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Course Registration </h2>
+        <img src="" alt="">
+        <p>Welcome username, complete your course registration form</p>
+
+    <table style="width: 100%; ">
+        <tr>
+            <th></th>
+            <th>Course</th>
+            <th>Course Code</th>
+            <th>Lecturer</th>
+            <th>Unit</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="course-0"></td>
+            <td>Mathematics</td>
+            <td>MTA 400</td>
+            <td>Muhammad  Sadiq</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="course-1"></td>
+            <td>English Language</td>
+            <td>ENG 401</td>
+            <td>Yahya Salamat</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="course-2"></td>
+            <td>Mathematics</td>
+            <td>ENG 403</td>
+            <td>Muhammad Abubakar Sadiq</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <button type="submit" onclick="validateForm(event)">Submit</button>
+</div>
+<script>
+    function validateForm(event) {
+        let course_array = [0,1,2]
+        event.preventDefault();
+        for (let id in course_array){
+            console.log(document.getElementById(`course-${id}`).value)
+        }
+    }
+</script>
+</body>
+</html>
